@@ -17,6 +17,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/health")
+    public Boolean healthCheck() {
+        return true;
+    }
+
     @GetMapping(value ={"/{username}", "/"})
     public StatsResponse getStats(@PathVariable Optional<String> username) {
         if (username.isPresent()) {
